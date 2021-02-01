@@ -3,9 +3,9 @@ import { promises as fs } from "fs";
 import { resolve } from "path";
 
 const PORT: number = parseInt(process.env.PORT) || 3000;
-const STORAGE: string =
-	resolve(__dirname, "..", process.env.STORAGE) ||
-	resolve(__dirname, "..", "counter.txt");
+const STORAGE: string = process.env.STORAGE
+	? resolve(__dirname, "..", process.env.STORAGE)
+	: resolve(__dirname, "..", "counter.txt");
 
 http
 	.createServer(
