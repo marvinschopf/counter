@@ -1,0 +1,9 @@
+{
+  "name": "counter-server",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "repository": "https://github.com/marvinschopf/counter-server",
+  "author": "Marvin Schopf <marvin@schopf.biz>",
+  "license": "MIT",
+  "private": false
+}
