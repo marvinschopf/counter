@@ -17,15 +17,24 @@ http
 			switch (req.url) {
 				case "/get":
 				case "/get/":
-					res.write(await fs.readFile(STORAGE));
+					try {
+						res.write(await fs.readFile(STORAGE));
+					} catch (e: unknown) {
+						await fs.writeFile(STORAGE, "0", "utf-8");
+						res.write("0");
+					}
 					break;
 				case "/update":
 				case "/update/":
-					const counter: number = parseInt(
-						(await fs.readFile(STORAGE)).toString("utf-8")
-					);
-					await fs.writeFile(STORAGE, (counter + 1).toString(), "utf-8");
-					res.write((counter + 1).toString());
+					let counter: number = 0;
+					try {
+						counter = parseInt((await fs.readFile(STORAGE)).toString("utf-8"));
+					} catch (e: unknown) {
+						await fs.writeFile(STORAGE, "0", "utf-8");
+					}
+					counter += 1;
+					await fs.writeFile(STORAGE, counter.toString(), "utf-8");
+					res.write(counter.toString());
 					break;
 			}
 			res.end();
