@@ -1,7 +1,3 @@
-
-# Created by https://www.toptal.com/developers/gitignore/api/node,typescript
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,typescript
-
 ### Node ###
 # Logs
 logs
@@ -116,6 +112,4 @@ dist
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
-#!! ERROR: typescript is undefined. Use list command to see defined gitignore types !!#
-
-# End of https://www.toptal.com/developers/gitignore/api/node,typescript
+counter.txt
